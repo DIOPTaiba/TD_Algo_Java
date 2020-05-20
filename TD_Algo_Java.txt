@@ -281,3 +281,221 @@ public class exo_7 {
 	    
 	}
 }
+
+
+
+
+
+EXO 8:
+
+import java.util.Scanner;
+
+public class exo_8 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Résolution déquation du type ax^2+bx+c = 0 ");
+		System.out.println("Donner le coéfficient a ");
+		int  a = sc.nextInt();
+		System.out.println("Donner le coéfficient b ");
+		int  b = sc.nextInt();
+		System.out.println("Donner le coéfficient c ");
+		int  c = sc.nextInt();
+		
+		int delta = (b*b)-(4*a*c);
+		if (a == 0)
+		{
+			if (b == 0)
+			{
+				System.out.println("L'équation n'admet pas de solution ");
+			}
+			else 
+			{
+				System.out.println("La solution de l'équation est: "+((double)(-c)/(double)b) );
+			}
+		}
+		else if (delta > 0)
+		{
+			System.out.println("L'équation admet 2 solutions ");
+			System.out.println("S1 = "+(-b-Math.sqrt(delta))/(2*a) );
+			System.out.println("S2 = "+(-b+Math.sqrt(delta))/(2*a) );
+		}
+		else if (delta ==0)
+		{
+			System.out.println("L'équation admet une unique solution "+-b/(2*a) );
+		}
+		else
+		{
+			System.out.println("L'équation n'admet pas de solution réel ");
+		}
+		
+		
+	}
+
+}
+
+
+
+
+
+
+EXO 9: Version 1
+
+import java.util.Scanner;
+
+public class exo_9_Version_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Calcul durée de vol dans le même jour\n");
+		System.out.println("Donner l'heure de départ ");
+		int  heureDepart = sc.nextInt();
+		System.out.println("Donner minute départ ");
+		int  minuteDepart = sc.nextInt();
+		System.out.println("Donner l'heure d'arrivée ");
+		int  heureArrivee = sc.nextInt();
+		System.out.println("Donner minute d'arrivée ");
+		int  minuteArrivee = sc.nextInt();
+		int nombreHeure, nombreMinute;
+		
+		if (minuteArrivee > minuteDepart)
+		{
+			nombreHeure = heureArrivee - heureDepart;
+			nombreMinute = minuteArrivee - minuteDepart;
+		}
+		else 
+		{
+			nombreHeure = heureArrivee -1 - heureDepart;
+			nombreMinute = minuteArrivee + 60 - minuteDepart;
+		}
+		
+		System.out.println("La durée du vol est de "+nombreHeure+"h:"+nombreMinute+"mm");
+		
+	}
+
+}
+
+
+
+
+
+EXO 9: Version 2
+
+import java.util.Scanner;
+
+public class exo_9_Version_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Calcul durée de vol dans le même jour\n");
+		System.out.println("Donner l'heure de départ ");
+		int  heureDepart = sc.nextInt();
+		System.out.println("Donner minute départ ");
+		int  minuteDepart = sc.nextInt();
+		System.out.println("Donner l'heure d'arrivée ");
+		int  heureArrivee = sc.nextInt();
+		System.out.println("Donner minute d'arrivée ");
+		int  minuteArrivee = sc.nextInt();
+		int nombreHeure, nombreMinute;
+		
+		if (heureArrivee > heureDepart)
+		{
+			if (minuteArrivee > minuteDepart)
+			{
+				nombreHeure = heureArrivee - heureDepart;
+				nombreMinute = minuteArrivee - minuteDepart;
+			}
+			else 
+			{
+				nombreHeure = heureArrivee - 1 - heureDepart;
+				nombreMinute = minuteArrivee + 60 - minuteDepart;
+			}
+		}
+		else
+		{
+			if (minuteArrivee > minuteDepart)
+			{
+				nombreHeure = heureArrivee + 24 - heureDepart;
+				nombreMinute = minuteArrivee - minuteDepart;
+			}
+			else 
+			{
+				nombreHeure = heureArrivee +24 -1 - heureDepart;
+				nombreMinute = minuteArrivee + 60 - minuteDepart;
+			}
+		}
+		
+		System.out.println("La durée du vol est de "+nombreHeure+"h:"+nombreMinute+"mm");
+		
+	}
+
+}
+
+
+
+
+
+EXO 10:
+
+import java.util.Scanner;
+
+public class exo_10 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Trie de 3 valeurs pas échance sucessif en les affichant par ordre croissant ");
+		System.out.println("Donner l'entier a ");
+		int  a = sc.nextInt();
+		System.out.println("Donner l'entier b ");
+		int  b = sc.nextInt();
+		System.out.println("Donner l'entier c ");
+		int  c = sc.nextInt();
+		int svg;
+		
+		if (a > b)
+		{
+			svg = a;
+			a = b;
+			b = svg;
+			if (b > c)
+			{
+				svg = b;
+				b = c;
+				c = svg;
+				if (a > b)
+				{
+					svg = a;
+					a = b;
+					b = svg;
+				}
+			}
+			
+		}
+		else
+		{
+			if (b > c)
+			{
+				svg = b;
+				b = c;
+				c = svg;
+				if (a > b)
+				{
+					svg = a;
+					a = b;
+					b = svg;
+				}
+			}
+		}
+		System.out.println("Les valeurs dans l'ordre croissant sont : "+a+" "+b+" "+c); 
+	
+	}
+
+}
