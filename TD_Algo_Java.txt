@@ -1,0 +1,283 @@
+EXO 1:
+
+import java.util.Scanner;
+
+public class exo_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Donner l'entier a");
+		int a = sc.nextInt();
+		System.out.println("Donner l'entier b");
+		int b = sc.nextInt();
+		
+		System.out.println("Le quotient entier de "+a+"/"+b+" = "+(a/b));
+		System.out.println("Le quotient réel de la division de "+a+"/"+b+" = "+(double)a / (double)b );
+		System.out.println("Le reste de la division de "+a+"/"+b+" = "+(a%b));
+			
+	}
+
+}
+
+
+
+
+EXO 2:
+
+import java.util.Scanner;
+
+public class exo_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner le rayon du cercle");
+		double rayon = sc.nextDouble();
+		
+		double PI = 4*Math.atan(1);
+		double surface = rayon*rayon*PI;
+		double perimetre = rayon*PI*2;
+		
+		System.out.println("La surface du cercle = "+surface);
+		System.out.println("Le périmètre du cercle = "+perimetre);
+		
+	}
+
+}
+
+
+
+
+EXO 3: Version 1
+
+import java.util.Scanner;
+
+public class exo_3_Version_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner la résistance R1");
+		double r1 = sc.nextDouble();
+		System.out.println("Donner la résistance R2");
+		double r2 = sc.nextDouble();
+		System.out.println("Donner la résistance R2");
+		double r3 = sc.nextDouble();
+		
+		double resistanceEnSerie = (r1+r2+r3);
+		double resistanceEnParallele = (r1*r2*r3) / (r1*r2 + r2*r3 + r1*r3);
+		
+		System.out.println("La résistance en série est = "+resistanceEnSerie);
+		System.out.println("La résistance en parallèle est = "+resistanceEnParallele);
+		
+	}
+
+}
+
+
+
+
+
+EXO 3: Version 2
+
+import java.util.Scanner;
+
+public class exo_3_Version_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner la résistance R1");
+		double r1 = sc.nextDouble();
+		System.out.println("Donner la résistance R2");
+		double r2 = sc.nextDouble();
+		System.out.println("Donner la résistance R2");
+		double r3 = sc.nextDouble();
+		
+		System.out.println("Taper 1 pour calculer la résistance en série");
+		System.out.println("Taper 2 pour calculer la résistance en paralléle");
+		int choix = sc.nextInt();
+		
+		while (choix != 1 && choix != 2)
+		{
+			System.out.println("Taper 1 pour calculer la résistance en série");
+			System.out.println("Taper 2 pour calculer la résistance en paralléle");
+			choix = sc.nextInt();
+		}
+		
+		if (choix == 1)
+		{
+			double resistanceEnSerie = (r1+r2+r3);
+			System.out.println("La résistance en série est = "+resistanceEnSerie);
+		}
+		
+		else 
+		{
+			double resistanceEnParallele = (r1*r2*r3) / (r1*r2 + r2*r3 + r1*r3);
+			System.out.println("La résistance en parallèle est = "+resistanceEnParallele);
+			
+		}
+		
+	}
+
+}
+
+
+
+
+
+EXO 4: Version 1
+
+import java.util.Scanner;
+
+public class exo_4_Version_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner le nombre pour calculer sa puissance");
+		double x = sc.nextDouble();
+		System.out.println("Donner la puissance");
+		int n = sc.nextInt();
+		
+		double puissance = Math.pow(x, n);
+		System.out.println(x+" à la puissance "+n+" = "+puissance);
+		
+	}
+
+}
+
+
+
+
+
+EXO 4: Version 2
+
+import java.util.Scanner;
+
+public class exo_4_Version_2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner le nombre pour calculer sa puissance");
+		double x = sc.nextDouble();
+		System.out.println("Donner la puissance");
+		int n = sc.nextInt();
+		double puissance = 1;
+		
+		while (n>0)
+		{
+			puissance *= x;
+			n--;
+		}
+		
+		System.out.println(x+" à la puissance "+n+" = "+puissance);
+	}
+
+}
+
+
+
+
+
+EXO 5:
+
+import java.util.Scanner;
+
+public class exo_5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int somme = 0;
+		Scanner sc = new Scanner(System.in);
+		for (int i=0; i<5; i++)
+		{
+			System.out.println("Donner un entier");
+			int entier = sc.nextInt();
+			somme = somme + entier;
+		}
+		
+		System.out.println("La somme des entiers = "+somme);
+	}
+
+}
+
+
+
+
+
+EXO 6:
+
+import java.util.Scanner;
+
+public class exo_6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner l'abcisse du point A ");
+		double x1 = sc.nextDouble();
+		System.out.println("Donner l'ordonnee du point A ");
+		double y1 = sc.nextDouble();
+		System.out.println("Donner l'abcisse du point B ");
+		double x2 = sc.nextDouble();
+		System.out.println("Donner l'ordonnee du point B ");
+		double y2 = sc.nextDouble();
+		
+		double distance = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1),2));
+		System.out.println("La distance entre A et B = "+distance);
+		
+	}
+
+}
+
+
+
+
+
+EXO 7:
+
+import java.util.Scanner;
+
+public class exo_7 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner le montant à décomposer ");
+		int  montant = sc.nextInt();
+		int nombreBillet20, nombreBillet10, nombreBillet5, nombrePiece2, nombrePiece1, reste;
+		
+		nombreBillet20 = montant/20;
+		reste = montant % 20;
+		nombreBillet10 = reste/10;
+	    reste = reste % 10;
+	    nombreBillet5 =reste/5;
+	    reste = reste % 5;
+	    nombrePiece2 =reste/2;
+	    reste = reste % 2;
+	    nombrePiece1 = reste;
+	    
+	    System.out.println("Le nombre de billet de 20 = "+nombreBillet20);
+	    System.out.println("Le nombre de billet de 10 = "+nombreBillet10);
+	    System.out.println("Le nombre de billet de 5 = "+nombreBillet5);
+	    System.out.println("Le nombre de pièce de 2 = "+nombrePiece2);
+	    System.out.println("Le nombre de pièce de 1 = "+nombrePiece1);
+	    
+	}
+}
