@@ -499,3 +499,100 @@ public class exo_10 {
 	}
 
 }
+
+
+
+
+
+EXO 11:
+
+import java.util.Scanner;
+
+public class exo_11 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner le premier l'entier ");
+		int  a = sc.nextInt();
+		sc.nextLine();
+		System.out.println("Taper +, -, * ou / pour choisir le calcul à effectuer ");
+		char operation =  sc.nextLine().charAt(0);
+		System.out.println("Donner le deuxième entier ");
+		int b = sc.nextInt();
+		double resultat;
+
+		if (operation == '+' )
+		{
+			resultat = a+b;
+			System.out.println("La somme de "+a+"+"+b+" = "+resultat);
+		}
+				    
+		if (operation == '-' )
+		{
+			resultat = a-b;
+			System.out.println("La soustraction de "+a+"-"+b+" = "+resultat);
+		}
+		if (operation == '*' )
+		{
+			resultat = a*b;
+			System.out.println("La multiplication de "+a+"*"+b+" = "+resultat);
+		}
+		if (operation == '/' )
+		{
+			resultat = (double)a/(double)b;
+			System.out.println("La division de "+a+"/"+b+" = "+resultat);
+		}
+		
+		if (operation != '+' && operation != '-' && operation != '*' && operation != '/' )
+			{
+				System.out.println("Veillez revoir votre opérateur");
+			}
+
+		sc.close();
+	}
+
+}
+
+
+
+
+
+
+EXO 12:
+
+import java.util.Scanner;
+
+public class exo_12 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Ce Programme permet de tester si un nombre est premier ou pas ");
+		System.out.println("Donner le nombre à tester \n");
+		Scanner sc = new Scanner(System.in);
+		int nombre = sc.nextInt();
+
+		int somme = 0;
+		if (nombre == 0)
+		{
+			System.out.println("Le nombre "+nombre+" n'est pas parfait");
+		}        
+		else
+		{
+		    for (int i=1; i <= nombre/2; i++)
+		    {
+		    	if (nombre % i == 0);
+		            somme = somme + i ;
+		    }
+		    if (nombre == somme)
+		    {
+		    	System.out.println("Le nombre "+nombre+" est parfait");
+		    }
+		    else System.out.println("Le nombre "+nombre+" n'est pas parfait");
+		}
+		sc.close();
+	}
+
+}
