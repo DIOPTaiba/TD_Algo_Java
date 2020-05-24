@@ -923,3 +923,339 @@ public class exo_20 {
 	}
 
 }
+
+
+
+
+
+EXO 21 :
+
+import java.util.Scanner;
+
+public class exo_21 {
+
+	public static void main(String[] args) {
+
+		System.out.println("Jeu de dévinette de nombre secret \n");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Joueur 1 donne le nombre secret");
+		int nombreSecret = sc.nextInt();
+		int proposition, nombreTentative = 0;
+		
+		do
+		{
+			System.out.println("Joueur 2 donne votre proposition");
+			proposition = sc.nextInt();
+			if (nombreSecret > proposition)
+			{
+				System.out.println("le nombre secret est plus grand que "+proposition);
+				nombreTentative += 1;
+			}
+			else if (nombreSecret < proposition) 
+			{
+				System.out.println("le nombre secret est plus petit que "+proposition);
+				nombreTentative += 1;
+			}
+			else
+			{
+				nombreTentative += 1;
+				double score = (1/(double)nombreTentative)*100;
+				System.out.println("Bravo vous avez trouvé le nombre secret en "+nombreTentative+" tentatives");
+				System.out.println("Votre score est "+score+"/100");
+			}
+			
+		}while(nombreSecret != proposition);
+		
+	
+		sc.close();
+	}
+
+}
+
+
+
+
+
+EXO 22:
+
+import java.util.Scanner;
+
+public class exo_22 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Ce programme affiche la séquence la plus longue d'une suite de valeurs en précisant sa position de début et sa longueur ");
+		System.out.println("Donner le nombre de valeur à saisir entre 10 et 50");
+		int nombre_valeur = sc.nextInt();
+		int valeur = 0;
+		while (nombre_valeur < 10 || nombre_valeur > 50)
+		{
+			System.out.println("Veillez reessayer le nombre de valeur doit être entre 10 et 50");
+			nombre_valeur = sc.nextInt();
+		}
+		   
+		int suite_entiers [] = new int [nombre_valeur];
+		for (int i=0; i<nombre_valeur; i++)
+		{
+			System.out.println("Donner un entier compris entre 1 et 100 ");
+			valeur = sc.nextInt();
+			while (valeur < 1 || valeur > 100)
+			{
+				System.out.println("Veillez reessayer l'entier doit être entre 1 et 100 ");
+				valeur = sc.nextInt();
+			}
+			suite_entiers[i] = valeur;
+		}
+		    
+		int longueur = 1, longueur_sequence_plus_longue = 1, position_sequence_plus_longue = 1, position_sequence_suivante = 1;
+		for (int i=0; i < nombre_valeur-1; i++)
+		{
+			if(suite_entiers[i] < suite_entiers[i+1])
+			{
+				longueur +=1;
+			}
+		    else
+		    {
+		    	if(longueur > longueur_sequence_plus_longue)
+			    {
+			    	longueur_sequence_plus_longue = longueur;
+			    	position_sequence_plus_longue = position_sequence_suivante;
+			    	position_sequence_suivante = i+2;
+			    	longueur = 1;
+			    }
+		    	else
+		    	{
+		    		position_sequence_suivante = i+2;
+		    		longueur = 1;
+		    	}
+				
+		    }
+		    
+		}
+		    
+		System.out.println("la séquence la plus longue est : ");
+		for (int i = (position_sequence_plus_longue - 1); i < (position_sequence_plus_longue + longueur_sequence_plus_longue - 1); i++)
+		{
+			System.out.print(suite_entiers[i]+" * ");
+		}
+		System.out.println(" qui débute à la position "+position_sequence_plus_longue+" et est de longueur "+longueur_sequence_plus_longue);
+
+		
+		sc.close();
+	}
+
+}
+
+
+
+
+
+EXO 23:
+
+public class exo_23 {
+
+	public static void main(String[] args) {
+
+		System.out.println("Calcul nombre de lapins\n");
+		int F0 = 2, F1 = 2, Fx = 0, nombreMois = 0;
+		for (int i = 1; i <= 11; i++ )
+		{
+			Fx = F0 + F1;
+			F0 = F1;
+			F1 = Fx;
+		}
+		System.out.println("Le nombre de lapins au 12ème mois = "+Fx);
+		
+		Fx = 0; F0 = 2; F1 = 2;
+		while (Fx < 1000000000)
+		{
+			Fx = F0 + F1;
+			F0 = F1;
+			F1 = Fx;
+			nombreMois +=1 ;
+		}
+		
+		System.out.println("On dépassera 1 milliard de lapins au bout de "+nombreMois);
+
+	}
+
+}
+
+
+
+
+
+EXO 24:
+
+import java.util.Scanner;
+
+public class exo_24 {
+
+	public static void main(String[] args) {
+
+		System.out.println("Jeu de dévinette de nombre secret avec 10 tentatives autorisées \n");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Joueur 1 donne le nombre secret");
+		int nombreSecret = sc.nextInt();
+		int proposition, nombreTentative = 0;
+		
+		do
+		{
+			System.out.println("Joueur 2 donne votre proposition");
+			proposition = sc.nextInt();
+			if (nombreSecret > proposition)
+			{
+				System.out.println("le nombre secret est plus grand que "+proposition);
+				nombreTentative += 1;
+			}
+			else if (nombreSecret < proposition) 
+			{
+				System.out.println("le nombre secret est plus petit que "+proposition);
+				nombreTentative += 1;
+			}
+			else
+			{
+				nombreTentative += 1;
+				double score = (1/(double)nombreTentative)*100;
+				System.out.println("Bravo vous avez trouvé le nombre secret en "+nombreTentative+" tentatives");
+				System.out.println("Votre score est "+score+"/100");
+			}
+			
+		}while(nombreSecret != proposition && nombreTentative < 10);
+		
+		if (nombreTentative == 10 && nombreSecret != proposition)
+		{
+			System.out.println("Vous avez perdu; vous avez faits 10 tentatives sans trouvé le nombre secret "+nombreSecret);
+		}
+	
+		sc.close();
+	}
+
+}
+
+
+
+
+
+EXO 25: Partei 1
+
+
+public class exo_25_partie1 {
+
+	public static void main(String[] args) {
+
+		for (int i = 1; i <= 10; i++)
+	    {
+	        int j = 1;
+	        while ( j <= i)
+	        {
+	            System.out.print(i+" ");
+	            j++;
+	        }
+	        System.out.println("");
+	    }
+	}
+
+}
+
+
+
+
+EXO 25: Partie 2
+
+import java.util.Scanner;
+
+public class exo_25_partie2 {
+
+	public static void main(String[] args) {
+
+		System.out.println("Ce programme test si un nombre est premier ou non");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner un nombre");
+		int nombre = sc.nextInt();
+		int nombre_diviseur = 0;
+		if (nombre == 0 && nombre ==1)
+		{
+			System.out.println("Le nombre "+nombre+" n'est pas un nombre premier");
+		}  
+		else
+		{
+			for (int i = 1; i<= nombre; i++)
+			{
+				if(nombre%i == 0)
+				{
+					 nombre_diviseur +=1;
+				}
+		           
+			}
+		    if(nombre_diviseur > 2)
+		    {
+		    	System.out.println("Le nombre "+nombre+" n'est pas un nombre premier ");
+		    }
+		    else
+		    {
+		    	System.out.println("Le nombre "+nombre+" est un nombre premier ");
+		    }
+		}
+		    
+		sc.close();
+	}
+
+}
+
+
+
+
+
+EXO 26:
+
+import java.util.Scanner;
+
+public class exo_26 {
+
+	public static void main(String[] args) {
+
+		System.out.println("Ce programme test si une suite de nombres est croissante, décroissante ou quelconque");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Donner le nombre de valeur à saisir");
+		int nombreValeur = sc.nextInt();
+		Boolean croissant = true, decroissant = true;
+		int tab[] = new int[nombreValeur];
+		
+		for (int i=0; i <= nombreValeur-1; i++)
+		{
+			System.out.println("Donner une valeur");
+			int valeur = sc.nextInt();
+			tab[i] = valeur;
+		}
+		for (int i=0; i < nombreValeur-1; i++)
+		{
+			if (tab[i] > tab[i+1])
+			{
+				croissant = false;
+			}
+			if (tab[i] < tab[i+1])
+			{
+				decroissant = false;
+			}			
+		}
+		if(croissant == true)
+		{
+			System.out.println("Les valeurs saisies sont dans l'ordre croissant");
+		}
+		else if(decroissant == true)
+			{
+				System.out.println("Les valeurs saisies sont dans l'ordre decroissant");
+			}
+		else
+		{
+			System.out.println("Les valeurs saisies sont dans l'ordre quelconque");
+		}
+		
+		sc.close();
+	}
+
+}
+
+
